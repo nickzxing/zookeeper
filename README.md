@@ -17,3 +17,6 @@
 服务端编译显示找不到version：
 * 运行：VerGen.java
 * Program arguments：3.4.13 1 2020-07-26
+
+其他案例main方法启动：
+* -Dlog4j.configuration=file:$ProjectFileDir$/conf/log4j_simple.properties
