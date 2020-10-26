@@ -11,10 +11,8 @@ hs_err_pid*
 
 # Eclipse
 .metadata
-.classpath
 .eclipse/
 .idea/
-.project
 .revision/
 .settings/
 .externalToolBuilders/
@@ -60,7 +58,6 @@ dataDir/data3/version-2
 # C
 tags
 .cproject
-.project
 obj
 src/c/core.*
 src/c/TEST-*.txt
