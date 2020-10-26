@@ -1,3 +1,5 @@
+clone项目后使用ant eclipse命令进行构建
+
 服务端单节点启动：
 * 运行：QuorumPeerMain.java
 * VM options：-Dlog4j.configuration=file:$ProjectFileDir$/conf/log4j.properties
