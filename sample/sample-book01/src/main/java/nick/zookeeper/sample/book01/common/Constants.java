@@ -11,4 +11,6 @@ public interface Constants {
     String ZK_HOST = "127.0.0.1:2181";
 
     String ZK_HOSTS = "127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183";
+
+    Integer SESSION_TIMEOUT = 5000;
 }

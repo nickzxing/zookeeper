@@ -1,4 +1,4 @@
-package nick.zookeeper.sample.book01.chapter05.section050301;
+package nick.zookeeper.sample.book01.chapter05.section01;
 
 import nick.zookeeper.sample.book01.common.Constants;
 import org.apache.zookeeper.WatchedEvent;
@@ -7,7 +7,6 @@ import org.apache.zookeeper.ZooKeeper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -16,21 +15,17 @@ import java.util.concurrent.CountDownLatch;
  * @author NickZxing
  * @date 2020/10/22 20:24
  */
-public class B01C05S050301M01 implements Watcher {
+public class B01C05S01M01 implements Watcher {
 
-    private final static Logger log = LoggerFactory.getLogger(B01C05S050301M01.class);
+    private final static Logger log = LoggerFactory.getLogger(B01C05S01M01.class);
 
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
-    public static void main(String[] args) {
-        try {
-            ZooKeeper zooKeeper = new ZooKeeper(Constants.ZK_HOSTS, 5000, new B01C05S050301M01());
-            log.info("ZooKeeper state: {}", zooKeeper.getState());
-            connectedSemaphore.await();
-            log.info("ZooKeeper state: {}", zooKeeper.getState());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws Exception {
+        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S01M01());
+        log.info("Zk state: {}", zk.getState());
+        connectedSemaphore.await();
+        log.info("Zk state: {}", zk.getState());
     }
 
     @Override
