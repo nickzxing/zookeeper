@@ -16,6 +16,6 @@ public class CustomStringCallback implements AsyncCallback.StringCallback {
 
     @Override
     public void processResult(int rc, String path, Object ctx, String name) {
-        log.info("Create path result: {}, {}, {}, real path name:{}", rc, path, ctx, name);
+        log.info("Create path: {}, {}, {}, real path name:{}", rc, path, ctx, name);
     }
 }

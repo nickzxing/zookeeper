@@ -1,4 +1,4 @@
-package nick.zookeeper.sample.book01.chapter05.section02;
+package nick.zookeeper.sample.book01.chapter05.section03;
 
 import nick.zookeeper.sample.book01.common.Constants;
 import org.apache.zookeeper.*;
@@ -13,21 +13,21 @@ import java.util.concurrent.CountDownLatch;
  * @author NickZxing
  * @date 2020/10/22 20:24
  */
-public class B01C05S02M01 implements Watcher {
+public class B01C05S03M03 implements Watcher {
 
-    private final static Logger log = LoggerFactory.getLogger(B01C05S02M01.class);
+    private final static Logger log = LoggerFactory.getLogger(B01C05S03M03.class);
 
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
     public static void main(String[] args) throws Exception {
-        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S02M01());
+        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S03M03());
         log.info("Zk state: {}", zk.getState());
         connectedSemaphore.await();
         log.info("Zk state: {}", zk.getState());
         String node1 = zk.create("/zk-test-ephemeral", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
-        log.info("Success create zookeeper node: {}", node1);
+        log.info("Success create zk node: {}", node1);
         String node2 = zk.create("/zk-test-ephemeral", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
-        log.info("Success create zookeeper node: {}", node2);
+        log.info("Success create zk node: {}", node2);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package nick.zookeeper.sample.book01.chapter05.section02;
+package nick.zookeeper.sample.book01.chapter05.section03;
 
 import nick.zookeeper.sample.book01.common.Constants;
 import nick.zookeeper.sample.book01.common.CustomStringCallback;
@@ -14,14 +14,14 @@ import java.util.concurrent.CountDownLatch;
  * @author NickZxing
  * @date 2020/10/22 20:24
  */
-public class B01C05S02M02 implements Watcher {
+public class B01C05S03M04 implements Watcher {
 
-    private final static Logger log = LoggerFactory.getLogger(B01C05S02M02.class);
+    private final static Logger log = LoggerFactory.getLogger(B01C05S03M04.class);
 
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
     public static void main(String[] args) throws Exception {
-        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S02M02());
+        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S03M04());
         log.info("Zk state: {}", zk.getState());
         connectedSemaphore.await();
         log.info("Zk state: {}", zk.getState());

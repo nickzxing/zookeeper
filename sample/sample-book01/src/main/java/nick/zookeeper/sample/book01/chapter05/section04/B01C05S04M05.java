@@ -9,14 +9,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 使用Fluent风格的curator创建一个zk客户端
+ * 使用NodeCache
  *
  * @author NickZxing
  * @date 2020/10/30 9:26
  */
-public class B01C05S04M01 {
+public class B01C05S04M05 {
 
-    private final static Logger log = LoggerFactory.getLogger(B01C05S04M01.class);
+    private final static Logger log = LoggerFactory.getLogger(B01C05S04M05.class);
+
+    private static String path = "/B01C05S04M04";
+    private static CuratorFramework client = CuratorFrameworkFactory.builder()
+            .connectString(Constants.ZK_HOSTS)
+            .sessionTimeoutMs(Constants.SESSION_TIMEOUT)
+            .connectionTimeoutMs(Constants.CONNECT_TIMEOUT)
+            .retryPolicy(new ExponentialBackoffRetry(1000, 3))
+            .build();
 
     public static void main(String[] args) throws Exception {
         RetryPolicy policy = new ExponentialBackoffRetry(1000, 3);

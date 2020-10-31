@@ -1,4 +1,4 @@
-package nick.zookeeper.sample.book01.chapter05.section01;
+package nick.zookeeper.sample.book01.chapter05.section03;
 
 import nick.zookeeper.sample.book01.common.Constants;
 import org.apache.zookeeper.WatchedEvent;
@@ -13,19 +13,19 @@ import org.slf4j.LoggerFactory;
  * @author NickZxing
  * @date 2020/10/22 20:24
  */
-public class B01C05S01M02 implements Watcher {
+public class B01C05S03M02 implements Watcher {
 
-    private final static Logger log = LoggerFactory.getLogger(B01C05S01M02.class);
+    private final static Logger log = LoggerFactory.getLogger(B01C05S03M02.class);
 
     public static void main(String[] args) throws Exception {
-        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S01M02());
+        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S03M02());
         log.info("Zk state: {}", zk.getState());
         Thread.sleep(1000);
         log.info("Zk state: {}", zk.getState());
         long sessionId = zk.getSessionId();
         byte[] sessionPassword = zk.getSessionPasswd();
         // 通过sessionId和sessionPassword复用zookeeper会话实例
-        zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S01M02(), sessionId, sessionPassword);
+        zk = new ZooKeeper(Constants.ZK_HOSTS, Constants.SESSION_TIMEOUT, new B01C05S03M02(), sessionId, sessionPassword);
         log.info("Zk state: {}", zk.getState());
         Thread.sleep(1000);
         log.info("Zk state: {}", zk.getState());
